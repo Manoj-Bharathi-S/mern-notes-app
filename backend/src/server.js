@@ -2,6 +2,7 @@ import express from "express";
 import notesRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
+import rateLimiter from "./middleware/rateLimiter.js";
 
 dotenv.config();
 // console.log(process.env.MONGODB_URL)
@@ -13,12 +14,13 @@ connectDB();
 
 // middleware
 app.use(express.json()); // Allows access to JSON body
+app.use(rateLimiter);
 
-// Custom middleware
-app.use((req,res,next) => {
-    console.log(`Req method is ${req.method} & Req URL is ${req.url}`);
-    next();0
-});
+// // Custom middleware
+// app.use((req,res,next) => {
+//     console.log(`Req method is ${req.method} & Req URL is ${req.url}`);
+//     next();0
+// });
 
 app.use("/api/notes", notesRoutes);
 
