@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import NoteCard from "../components/NoteCard"
 import api from "../lib/axios"
 import NotesNotFound from '../components/NotesNotFound';
+import { Link } from "react-router";
 
 const HomePage = () => {
 const [isRateLimited, setIsRateLimited] = useState(false);

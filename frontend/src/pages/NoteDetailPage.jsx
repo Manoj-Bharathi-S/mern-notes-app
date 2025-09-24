@@ -1,7 +1,7 @@
 import { LoaderIcon } from 'lucide-react';
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate,useParams } from 'react-router';
+import { useParams, useNavigate } from "react-router";
 import api from '../lib/axios';
 import { useEffect } from 'react';
 import { Link } from 'react-router';
