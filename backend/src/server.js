@@ -14,6 +14,8 @@ const PORT = process.env.PORT || 5001;
 const __dirname = path.resolve();
 
 // middleware
+// Ensure correct client IPs when behind reverse proxies (e.g., Render, Vercel, Nginx)
+app.set('trust proxy', 1);
 if (process.env.NODE_ENV !== "production") {
   app.use(
     cors({
